@@ -44,6 +44,18 @@ export const List = styled.FlatList.attrs({
 export const User = styled.View`
   align-items: center;
   margin: 0 20px 30px;
+  position: relative;
+`;
+
+export const ButtonExlcude = styled(RectButton)`
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 3px 7px;
+`;
+
+export const Exclude = styled.Text`
+  color: #ccc;
 `;
 
 export const Avatar = styled.Image`
