@@ -18,6 +18,8 @@ import {
   Bio,
   ProfileButton,
   ProfileButtonText,
+  ButtonExlcude,
+  Exclude,
 } from './styles';
 
 export default class Main extends Component {
@@ -78,6 +80,14 @@ export default class Main extends Component {
     navigation.navigate('User', { user });
   };
 
+  handleExcludeUser = user => {
+    const { users } = this.state;
+
+    users.splice(user, 1);
+
+    this.setState({ users });
+  };
+
   render() {
     const { users, newUser, loading } = this.state;
 
@@ -107,6 +117,9 @@ export default class Main extends Component {
           keyExtractor={user => user.login}
           renderItem={({ item }) => (
             <User>
+              <ButtonExlcude onPress={() => this.handleExcludeUser(item)}>
+                <Exclude>x</Exclude>
+              </ButtonExlcude>
               <Avatar source={{ uri: item.avatar }} />
               <Name>{item.name}</Name>
               <Bio>{item.bio}</Bio>
